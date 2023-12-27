@@ -2,8 +2,8 @@
 node_modules/
 
 # Logs
-# logs
-# *.log
+logs
+*.log
 
 # Runtime data
 pids

@@ -1,13 +1,4 @@
 import winston from 'winston';
-import fs from 'fs';
-import path from 'path';
-
-const logDir = path.join(process.cwd(), 'logs');
-
-// Ensure logs directory exists
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
-}
 
 export const logger = winston.createLogger({
   level: 'info',
@@ -18,13 +9,7 @@ export const logger = winston.createLogger({
       return logEntry.replace(/\u001b\[0m/g, '');
     })
   ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({
-      filename: path.join(logDir, 'info.log'),
-      level: 'info'
-    })
-  ]
+  transports: [new winston.transports.Console()]
 });
 
 export const stream = {
