@@ -66,6 +66,6 @@ export const handleError = (err, req, res, next) => {
  * Timeout middleware
  */
 export const timeoutMiddleware = timeout({
-  time: 1000 * 60,
+  time: 1000 * 60 * 2,
   message: "Request timeout",
 });
